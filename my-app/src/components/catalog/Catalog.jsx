@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import * as shipService from "../../services/shipService.js";
 const Catalog = () => {
   const [ships, setShips] = useState([]);
-  const [showInfo, setShowInfo] = useState(false);
   const [selectedShip, setSelectedShip] = useState(null);
+  const [showInfo, setShowInfo] = useState(false);
 
 
 
@@ -17,28 +17,27 @@ const Catalog = () => {
       .catch(err => console.log(err))
   }, []);
 
-  const shipInfoClickHandler = async (shipId) => {
-    setSelectedShip(shipId);
+  const openShipDetails = async (ship) => {
+    setSelectedShip(ship);
     setShowInfo(true);
-};
+  };
+
+  const closeShipDetails = () => {
+    setSelectedShip(null);
+    setShowInfo(false);
+  };
 
 
   return (
     <>
+      {ships.map(ship => (
+        <ShipItem key={ship._id} onInfoClick={openShipDetails} {...ship} />
+      ))}
 
-      {ships.map(ship => <ShipItem key={ship._id} onInfoClick={shipInfoClickHandler}{...ship} />)}
-
-
-      {showInfo && (
-                <ShipInfo
-                    onClose={() => setShowInfo(false)}
-                    shipId={selectedShip}
-                />
-            )}
-
-
+      {showInfo && selectedShip && (
+        <ShipInfo shipId={selectedShip} onClose={closeShipDetails} />
+      )}
     </>
-
   );
 }
 

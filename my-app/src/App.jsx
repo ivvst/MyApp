@@ -26,7 +26,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/create" element={<Create />} />
-          <Route path="/details" element={<ShipInfo />} />
+          <Route path="/details/:shipId" element={<ShipInfo/>} />
 
 
         </Routes>
