@@ -1,0 +1,37 @@
+{
+  "749a76ae-f9e1-4750-a2f2-c916cceb68d5": {
+      "name": " Test",
+      "cruiseLine": " from Basel to Amsterdam",
+      "imageUrl": "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10179-50034/resize/0x500/options/keepaspectratio.jpg",
+      "additionalInfo": {
+          "totalGuests": 130,
+          "yearOfBuild": 2020,
+          "description": "Experience the luxury of the River Voyager with botiques rooms and top-notch amenities."
+      },
+      "ownerName": "test123",
+      "_id": "749a76ae-f9e1-4750-a2f2-c916cceb68d5"
+  },
+  "5a59b18a-ff32-450a-a58d-338476bc83f2": {
+      "name": "SS Catherine",
+      "cruiseLine": " from Lyon to Arles",
+      "imageUrl": "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10179-50034/resize/0x500/options/keepaspectratio.jpg",
+      "additionalInfo": {
+          "totalGuests": 180,
+          "yearOfBuild": 2022,
+          "description": "Experience the luxury of the River Voyager with botiques rooms and top-notch amenities."
+      },
+      "ownerName": "test123",
+      "_id": "5a59b18a-ff32-450a-a58d-338476bc83f2"
+  },
+  "db9e724c-0047-4791-a870-3df1131147ae": {
+      "name": "River Princessese",
+      "cruiseLine": "Budapest-Passau",
+      "imageUrl": "https://i.pinimg.com/736x/6c/06/1f/6c061f411a1d56d3a226046b200656b4--html.jpg",
+      "additionalInfo": {
+          "yearOfBuild": "2023",
+          "description": "\nThe \"River Princess\" ship is an elegant river cruise vessel known for its luxurious amenities and breathtaking views along scenic waterways. With a blend of modern comforts and classic charm, passengers aboard the River Princess experience a truly regal journey through some of the world's most picturesque landscapes."
+      },
+      "ownerName": "test123",
+      "_id": "db9e724c-0047-4791-a870-3df1131147ae"
+  }
+}
