@@ -1,48 +1,44 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import * as shipService from '../../services/shipService';
 import "./info.css"
 
 
 const ShipInfo = ({
-    shipId,
-    onClose,
-    
+  shipId,
+  onClose,
+
 }) => {
-    const [ship, setShip] = useState({});
+  const [ship, setShip] = useState({});
+  const navigate = useNavigate();
 
-    useEffect(() => {
-        shipService.getOne(shipId)
-            .then(result => setShip(result));
-    }, [shipId]);
 
-    return(
+  const handleEditClick = () => {
+   
+    navigate(`/edit/${shipId}`);
+  };
 
-      <div className="overlay">
+  useEffect(() => {
+    shipService.getOne(shipId)
+      .then(result => setShip(result));
+  }, [shipId]);
+
+  return (
+
+    <div className="overlay">
       <div className="details-container">
         <h2>{ship.name} Details</h2>
         <p>Description: {ship.additionalInfo?.description}</p>
         <p>Year Build: {ship.additionalInfo?.yearOfBuild}</p>
         <p>Capacity: {ship.additionalInfo?.totalGuests}</p>
-        <p>Image: {ship.image}</p>
+        <p>Image: {ship.imageUrl}</p>
+        <button className="news-card__read-more" onClick={handleEditClick}>
+          Edit <i className="fas fa-long-arrow-alt-right"></i>
+        </button>
         <button onClick={onClose}>Close</button>
       </div>
     </div>
-
-    //     <div className="detail-page">
-    //   <h2>Ship Details</h2>
-    //   <div className="ship-info">
-    //     <p>Total Guests: {ship.additionalInfo?.totalGuests}</p>
-    //     <p>Year of Build: {ship.additionalInfo?.yearOfBuild}</p>
-    //     <p>Name of the Ship: {ship.name}</p>
-    //   </div>
-
-    //   {/* Overlay for the current ship */}
-    //   <div className={`overlay ${ship.name}-overlay`}>
-    //     <p>This is the overlay for {ship.additionalInfo?.description}</p>
-    //     {/* Additional overlay content */}
-    //   </div>
-    // </div>
-    )
+  )
 }
 
 export default ShipInfo;

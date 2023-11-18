@@ -1,6 +1,7 @@
 import "./catalog.css"
 import ShipInfo from "./ShipInfo";
-
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const ShipItem = ({
   _id,
@@ -27,7 +28,7 @@ const ShipItem = ({
             <p className="news-card__excerpt">{ownerName}</p>
 
             <button  className="news-card__read-more" onClick={infoClickHandler}>Read more <i className="fas fa-long-arrow-alt-right"></i></button>
-            <button  className="news-card__read-more">Edit <i className="fas fa-long-arrow-alt-right"></i></button>
+            {/* <Button  className="news-card__read-more" as={Link} to={`/catalog/${_id}`}>Details</Button> */}
 
           </div>
         </div>

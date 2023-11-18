@@ -16,7 +16,7 @@ export const getAll = async () => {
 export const getOne = async (shipId) => {
     const response = await fetch(`${baseUrl}/${shipId}`);
     const result = await response.json();
-    console.log(result);
+    // console.log(result);
     return result;
 };
 
@@ -51,5 +51,25 @@ export const create = async (data) => {
     return result
 };
 
-export const edit = (shipId, data) => request.put(`${baseUrl}/${shipId}`, data);
+export const edit = (shipId, data) => {
+    const url = `${baseUrl}/${shipId}`;
+    
+    return fetch(url, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .catch(error => {
+        console.error('Error editing ship data:', error);
+        throw error; // Rethrow the error to handle it where the edit function is called
+      });
+  };
 
