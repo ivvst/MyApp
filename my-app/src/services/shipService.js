@@ -73,3 +73,12 @@ export const edit = (shipId, data) => {
       });
   };
 
+  export const remove = async (shipId) => {
+    const response = await fetch(`${baseUrl}/${shipId}`, {
+        method: 'DELETE'
+    });
+
+    const result = await response.json();
+
+    return result;
+};

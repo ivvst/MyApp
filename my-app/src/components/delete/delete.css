@@ -1,0 +1,41 @@
+/* delete.css */
+
+
+  
+
+  
+ 
+  
+  .headers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .headers h2 {
+    margin: 0;
+  }
+  
+  .confirm-container
+  {
+    background-color: antiquewhite;
+  }
+  .close {
+    background: none;
+    border: none;
+    font-size: 16px;
+    background-color: blueviolet;
+    cursor: pointer;
+  }
+  
+  .actions {
+    text-align: right;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+  }
+  

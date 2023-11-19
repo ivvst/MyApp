@@ -1,7 +1,7 @@
 Add your styles to a CSS file
 .overlay {
-  position: fixed;
-  top: 0;
+  position:-ms-page;
+  top: 10;
   left: 0;
   width: 100%;
   height: 100%;
@@ -13,9 +13,18 @@ Add your styles to a CSS file
 }
 
 .details-container {
-  background-color: #fff;
-  padding: 20px;
+  background-color: #c5e6f5;
+  padding: 150px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
+  position: relative;
+  z-index: 1100;
 }
+.details-container img {
+  max-width: 40%; /* Ensure the image doesn't exceed the container width */
+  max-height: 200px; /* Set the maximum height of the image */
+  display: block; /* Ensure the image doesn't have extra spacing below it */
+  margin: 0 auto; /* Center the image horizontally */
+}
+
