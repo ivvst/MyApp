@@ -33,7 +33,7 @@ const ShipInfo = ({
         <p>Description: {ship.additionalInfo?.description}</p>
         <p>Year Build: {ship.additionalInfo?.yearOfBuild}</p>
         <p>Capacity: {ship.additionalInfo?.totalGuests}</p>
-        <img src={ship.imageUrl} alt="" className="news-card__image" />
+        <img src={shipimageUrl} alt="" className="news-card__image" />
         <button className="news-card__read-more" onClick={handleEditClick}>
           Edit <i className="fas fa-long-arrow-alt-right"></i>
         </button>

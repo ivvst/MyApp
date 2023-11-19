@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import { useEffect, useState } from "react";
+import { Button } from 'react-bootstrap';
 
 import Catalog from '../catalog/Catalog';
 
@@ -36,6 +37,7 @@ const Header = () => {
               <div className="col-xs-12 col-md-offset-1 col-md-10 col-lg-offset-2 col-lg-8">
                 <div className="page-title  home text-center">
                   <span className="heading-page"> Travel Around The World</span>
+                  {/* <Button as={Link} to={"/home"} variant="info">See Intro</Button> */}
                   <p className="mt20">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                     eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut

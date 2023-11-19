@@ -5,7 +5,7 @@ import { Route, Routes } from 'react-router-dom';
 import Footer from "./components/footer/Footer.jsx";
 import Header from './components/header/Header.jsx';
 import Catalog from './components/catalog/Catalog.jsx';
-import Home from './components/Home';
+import Home from './components/home/Home.jsx';
 import Edit from './components/edit/Edit.jsx';
 
 
