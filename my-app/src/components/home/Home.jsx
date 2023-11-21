@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-import Login from "../Login";
+import Login from "../login/Login";
 import Button from 'react-bootstrap/Button';
 import './home.css'
 

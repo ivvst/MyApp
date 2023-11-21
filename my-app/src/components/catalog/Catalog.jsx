@@ -53,6 +53,10 @@ const Catalog = () => {
           {...ship} />
       ))}
 
+      {ships.length === 0 && (
+        <h3 className="no-ships">Not added ships yet</h3>
+      )}
+
       {showInfo && selectedShip && (
         <ShipInfo shipId={selectedShip} onClose={closeShipDetails} />
       )}

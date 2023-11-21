@@ -13,6 +13,7 @@ import Register from './components/Register';
 import Create from './components/create/Create.jsx';
 import ShipInfo from './components/catalog/ShipInfo.jsx';
 import Navigation from './components/Navigation.jsx';
+import Login from './components/login/Login.jsx';
 
 
 
@@ -20,18 +21,19 @@ function App() {
 
   return (
     <div>
-      <Navigation/>
+      <Navigation />
       <Header />
       <main className="main">
         <Routes>
 
           <Route path="/" element={<Home />} />
 
-          <Route path="/register" element={<Register />} />
           <Route path="/details/:shipId" element={<ShipInfo />} />
           <Route path="/catalog" element={<Catalog />} />
           <Route path="/create" element={<Create />} />
           <Route path='/edit/:shipId' element={<Edit />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
 
 
 
