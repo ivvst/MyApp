@@ -1,13 +1,16 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Delete from "../delete/Delete";
 import "./catalog.css"
 import ShipInfo from "./ShipInfo";
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import * as shipService from '../../services/shipService.js'
+import AuthContext from '../../contexts/authContext.js';
+
 
 const ShipItem = ({
   _id,
+  _ownerId,
   name,
   imageUrl,
   cruiseLine,
@@ -16,6 +19,7 @@ const ShipItem = ({
   onDeleteClick
 
 }) => {
+  const { userId } = useContext(AuthContext);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
 
@@ -28,7 +32,10 @@ const ShipItem = ({
     onDeleteClick(_id)
     console.log(_id);
   };
- 
+
+
+  const isOwner = _ownerId === userId;
+  console.log(userId,_ownerId);
 
   return (
     <div className="content-wrapper">
@@ -43,7 +50,9 @@ const ShipItem = ({
             <p className="news-card__excerpt">{ownerName}</p>
 
             <Button className="news-card__read-more" variant="info" onClick={infoClickHandler}>ReadMore</Button>
-            <Button className="news-card__read-more" variant="danger" onClick={handleDeleteClick}>Delete</Button>
+            {isOwner &&
+              <Button className="news-card__read-more" variant="danger" onClick={handleDeleteClick}>Delete</Button>
+            }
           </div>
         </div>
       </div>

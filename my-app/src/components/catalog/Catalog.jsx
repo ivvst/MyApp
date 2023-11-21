@@ -35,13 +35,14 @@ const Catalog = () => {
   };
 
   const handleDeleteConfirm = async () => {
+    console.log(selectedShip._id);
 
     await shipService.remove(selectedShip._id);
 
 
     setShips(prevShips => prevShips.filter(ship => ship._id !== selectedShip._id));
     setShowDeleteModal(false);
-    navigate('/catalog');
+    navigate('/home');
   };
 
 
@@ -52,10 +53,9 @@ const Catalog = () => {
           onDeleteClick={() => handleDeleteClick(ship)}
           {...ship} />
       ))}
+      {ships.length == 0 && <h3 className="no-ships">Not added ships yet</h3>
+      }
 
-      {ships.length === 0 && (
-        <h3 className="no-ships">Not added ships yet</h3>
-      )}
 
       {showInfo && selectedShip && (
         <ShipInfo shipId={selectedShip} onClose={closeShipDetails} />

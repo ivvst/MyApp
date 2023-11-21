@@ -13,8 +13,8 @@ const Create = () => {
 
     const shipsData = Object.fromEntries(new FormData(e.currentTarget));
     try {
+      console.log(shipsData);
        await shipService.create(shipsData);
-      console.log();
       navigate('/catalog');
     } catch (error) {
       console.log(error);
@@ -45,8 +45,7 @@ const Create = () => {
           <label htmlFor="description">Description:</label>
           <textarea name="description" id="description"></textarea>
 
-          <label htmlFor="ownerName">Owner of Creation:</label>
-          <input type="text" id="ownerName" name="ownerName" placeholder="Enter your username..." />
+         
 
           <input className="btn submit" type="submit" value="Create Ship" />
         </div>

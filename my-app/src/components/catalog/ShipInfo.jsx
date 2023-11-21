@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import * as shipService from '../../services/shipService';
 import Button from 'react-bootstrap/Button';
 
 import "./info.css"
+import AuthContext from "../../contexts/authContext";
 
 
 const ShipInfo = ({
@@ -12,13 +13,18 @@ const ShipInfo = ({
 
 }) => {
   const [ship, setShip] = useState({});
+
+  const { userId } = useContext(AuthContext)
+
   const navigate = useNavigate();
 
+  const isOwner = ship._ownerId === userId;
 
   const handleEditClick = () => {
-   
+
     navigate(`/edit/${shipId}`);
   };
+  console.log(setShip);
 
   useEffect(() => {
     shipService.getOne(shipId)
@@ -30,13 +36,13 @@ const ShipInfo = ({
     <div className="overlay">
       <div className="details-container">
         <h2>{ship.name} Details</h2>
-        <p>Description: {ship.additionalInfo?.description}</p>
-        <p>Year Build: {ship.additionalInfo?.yearOfBuild}</p>
-        <p>Capacity: {ship.additionalInfo?.totalGuests}</p>
+        <p>Description: {ship.description}</p>
+        <p>Year Build: {ship.yearOfBuild}</p>
+        <p>Capacity: {ship.totalGuests}</p>
         <img src={ship.imageUrl} alt="" className="news-card__image" />
-        <button className="news-card__read-more" onClick={handleEditClick}>
-          Edit <i className="fas fa-long-arrow-alt-right"></i>
-        </button>
+        {isOwner &&
+          <Button onClick={handleEditClick} variant="info">Edit </Button>
+        }
         <Button onClick={onClose} variant="success">Close</Button>
       </div>
     </div>

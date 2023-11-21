@@ -13,7 +13,7 @@ const Delete = ({ onCancel, onConfirm }) => {
     return (
         <div className="overlay">
 
-            {console.log(onCancel)}
+            {console.log(onConfirm)}
             <div className="confirm-container">
                 <header className="headers">
                     <h2>Are you sure you want to delete this ship?</h2>

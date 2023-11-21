@@ -3,8 +3,8 @@ Add your styles to a CSS file
   position:-ms-page;
   top: 10;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 10%;
+  height: 10%;
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay */
   display: flex;
   justify-content: center;
@@ -14,7 +14,7 @@ Add your styles to a CSS file
 
 .details-container {
   background-color: #c5e6f5;
-  padding: 150px;
+  padding: 15px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   text-align: center;
