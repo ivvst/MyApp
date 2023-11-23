@@ -1,3 +1,4 @@
+
 import ShipItem from "./ShipItem.jsx"
 import ShipInfo from "./ShipInfo.jsx";
 import Delete from '../delete/Delete';
@@ -53,8 +54,8 @@ const Catalog = () => {
           onDeleteClick={() => handleDeleteClick(ship)}
           {...ship} />
       ))}
-      {ships.length == 0 && <h3 className="no-ships">Not added ships yet</h3>
-      }
+      {/* {ships.length == 0 && <h3 className="no-ships">Not added ships yet</h3>
+      } */}
 
 
       {showInfo && selectedShip && (

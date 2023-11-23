@@ -5,7 +5,7 @@ import ShipInfo from "./ShipInfo";
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import * as shipService from '../../services/shipService.js'
-import AuthContext from '../../contexts/authContext.js';
+import AuthContext from '../../contexts/authContext.jsx';
 
 
 const ShipItem = ({
