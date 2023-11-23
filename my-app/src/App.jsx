@@ -1,10 +1,8 @@
 
 
-import React, { useState } from 'react'
-import { Route, Routes, useNavigate } from 'react-router-dom';
 
-import * as authService from './services/authService.js'
-import AuthContext from './contexts/authContext.js';
+import { Route, Routes } from 'react-router-dom';
+import { AuthProvider } from './contexts/authContext.jsx';
 import Path from './path.js';
 
 import Home from './components/home/Home.jsx';
@@ -23,58 +21,8 @@ import Logout from './components/logout/Logout.jsx';
 
 
 function App() {
-  const navigate = useNavigate();
-  const [auth, setAuth] = useState(() => {
-
-    localStorage.removeItem('accessToken');
-    return {};
-
-  });
-
-  const loginSubmitHandler = async (values) => {
-    //TODO NOTIFICATION WHEN SOMETHING DOES NOT MATCH OR THERE IS SOME ERROR
-    const result = await authService.login(values.email, values.password);
-
-    setAuth(result);
-    console.log(result);
-    localStorage.setItem('accessToken', result.accessToken);
-
-    navigate(Path.Home);
-  }
-
-
-  const registerSubmitHandler = async (values) => {
-    const result = await authService.register(values.username, values.email, values.password);
-
-    setAuth(result);
-    localStorage.setItem('accessToken', result.accessToken);
-
-
-    navigate(Path.Home);
-
-  }
-
-  const logoutHandler = () => {
-    setAuth({});
-
-    localStorage.removeItem('accessToken');
-    navigate(Path.Home)
-  };
-
-
-  const values = {
-    loginSubmitHandler,
-    registerSubmitHandler,
-    logoutHandler,
-
-    username: auth.username,
-    email: auth.email,
-    isAuthenticated: !!auth.email,
-    userId: auth._id,
-  };
-
   return (
-    <AuthContext.Provider value={values}>
+    <AuthProvider>
 
       <div>
         <Navigation />
@@ -99,7 +47,7 @@ function App() {
           <Footer />
         </main>
       </div>
-    </AuthContext.Provider>
+    </AuthProvider>
   );
 }
 
