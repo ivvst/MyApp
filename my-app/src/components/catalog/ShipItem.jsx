@@ -6,6 +6,8 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import * as shipService from '../../services/shipService.js'
 import AuthContext from '../../contexts/authContext.jsx';
+import { useEffect } from 'react';
+
 
 
 const ShipItem = ({
@@ -22,6 +24,13 @@ const ShipItem = ({
   const { userId } = useContext(AuthContext);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
+  const [latestShips, setLatestShips] = useState([]);
+
+  useEffect(() => {
+    shipService.getLatest()
+      .then(result => setLatestShips(result));
+  }, [])
+
 
   const infoClickHandler = () => {
     onInfoClick(_id);
@@ -30,21 +39,21 @@ const ShipItem = ({
   const handleDeleteClick = () => {
     setShowDeleteModal(true);
     onDeleteClick(_id)
-    console.log(_id);
   };
 
 
   const isOwner = _ownerId === userId;
-  console.log(userId,_ownerId);
 
   return (
+
     <div className="content-wrapper">
+
+
       <div className="news-card">
         <a href="#" className="news-card__card-link"></a>
         <img src={imageUrl} alt="" className="news-card__image" />
         <div className="news-card__text-wrapper">
           <h2 className="news-card__title">{name}</h2>
-          <div className="news-card__post-date">Jan 29, 2018</div>
           <div className="news-card__details-wrapper">
             <p className="news-card__excerpt">{cruiseLine}</p>
             <p className="news-card__excerpt">{ownerName}</p>
@@ -57,7 +66,6 @@ const ShipItem = ({
         </div>
       </div>
     </div>
-
 
   );
 }

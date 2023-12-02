@@ -13,6 +13,23 @@ export const getOne = async (shipId) => {
 
   return result;
 }
+export const getLatest = async () => {
+  try {
+      const url = `${baseUrl}?offset=0&pageSize=2`;
+      const response = await fetch(url);
+      const ships = await response.json();
+
+      const sortedShips = ships.sort((a, b) => {
+          const dateA = new Date(a._createdOn);
+          const dateB = new Date(b._createdOn);
+          return dateB - dateA;
+      });
+      return sortedShips.slice(0, 2);
+  } catch (error) {
+      console.error('Error fetching latest ships:', error);
+      throw error;
+  }
+};
 
 
 export const create = async (shipData) => {

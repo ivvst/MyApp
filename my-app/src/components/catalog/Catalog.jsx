@@ -5,6 +5,8 @@ import Delete from '../delete/Delete';
 import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import * as shipService from "../../services/shipService.js";
+import Carousel from 'react-bootstrap/Carousel';
+
 const Catalog = () => {
   const [ships, setShips] = useState([]);
   const [selectedShip, setSelectedShip] = useState(null);
@@ -14,11 +16,28 @@ const Catalog = () => {
 
 
 
+
   useEffect(() => {
     shipService.getAll()
       .then(result => setShips(result))
       .catch(err => console.log(err))
   }, []);
+
+  const [latestShips, setLatestShips] = useState([]);
+
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex) => {
+      setIndex(selectedIndex);
+  };
+
+  useEffect(() => {
+    shipService.getLatest()
+      .then(result => setLatestShips(result));
+  }, [])
+
+  console.log(latestShips);
+
 
   const openShipDetails = async (ship) => {
     setSelectedShip(ship);
@@ -49,6 +68,24 @@ const Catalog = () => {
 
   return (
     <>
+      <h3>Latest Ships</h3>
+
+      {latestShips.length > 0 ? (
+        <Carousel activeIndex={index} onSelect={handleSelect}>
+          {latestShips.map(ship => (
+            <Carousel.Item key={ship._id}>
+              <img className="d-block w-100" src={ship.imageUrl} alt={ship.name} />
+              <Carousel.Caption>
+                <h3>{ship.name}</h3>
+                <p>{ship.cruiseLine}</p>
+              </Carousel.Caption>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+      ) : (
+        <p>No Ships yet</p>
+      )}
+
       {ships.map(ship => (
         <ShipItem key={ship._id} onInfoClick={openShipDetails}
           onDeleteClick={() => handleDeleteClick(ship)}
