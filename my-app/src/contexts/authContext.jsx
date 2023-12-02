@@ -1,30 +1,56 @@
-import  { createContext } from 'react'
+import { createContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import * as authService from '../services/authService.js'
 import usePersistedState from '../hooks/usePersistedState.js';
 import Path from '../path.js';
+import Swal from 'sweetalert2';
+import 'sweetalert2/dist/sweetalert2.min.css';
 
 const AuthContext = createContext();
+
 
 AuthContext.displayName = "AuthContext"
 
 export const AuthProvider = ({
     children
 }) => {
+    const loginAlert = () => {
+        Swal.fire({
+            icon: 'success',
+            title: 'Login Successfully'
+        });
+    }
+    const displayAlert = () => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Login failed!',
+        });
+    };
     const navigate = useNavigate();
     const [auth, setAuth] = usePersistedState('auth', {});
 
+
     const loginSubmitHandler = async (values) => {
+        try {
+            const result = await authService.login(values.email, values.password);
+
+            setAuth(result);
+            localStorage.setItem('accessToken', result.accessToken);
+            loginAlert();
+            navigate(Path.Home);
+
+        } catch (error) {
+            displayAlert(error.message || 'Login failed', 'danger');
+            console.error('Error during login:', error);
+            // Display an alert or notification for other errors
+
+        }
         //TODO NOTIFICATION WHEN SOMETHING DOES NOT MATCH OR THERE IS SOME ERROR
-        const result = await authService.login(values.email, values.password);
 
-        setAuth(result);
-        console.log(result);
-        localStorage.setItem('accessToken', result.accessToken);
-
-        navigate(Path.Home);
     }
+
 
 
     const registerSubmitHandler = async (values) => {

@@ -29,8 +29,6 @@ export default function usePersistedState(key, defaultValue) {
 
         localStorage.setItem(key, serializedValue);
     }
-    console.log(typeof(setPersistedState));
-    console.log(typeof(state));
 
     return [
         state,
