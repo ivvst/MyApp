@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import * as shipService from '../../services/shipService';
+import "./Edit.css"
 
 const Edit = () => {
     const { shipId } = useParams();
@@ -55,16 +56,25 @@ const Edit = () => {
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0; // Return true if no errors
     };
+    const [isLoading, setIsLoading] = useState(false);
 
+    // Update your handleSave function
     const handleSave = async () => {
-        // Save the edited ship data using your service
-        await shipService.edit(shipId, shipData);
-        // After saving, navigate back to the ship details page
-        navigate(`/catalog`);
+        try {
+            setIsLoading(true);
+            // Save the edited ship data using your service
+            await shipService.edit(shipId, shipData);
+            // After saving, navigate back to the ship details page
+            navigate(`/catalog`);
+        } catch (error) {
+            console.error('Error saving ship data:', error);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
-        <div>
+        <div className="edit-container">
             <h2>Edit Ship</h2>
             <form>
                 <div>
@@ -97,8 +107,12 @@ const Edit = () => {
                     <textarea id="description" name="description" value={shipData.description} onChange={handleChange} />
                     {errors.description && <span className="error">{errors.description}</span>}
                 </div>
-                <button type="button" onClick={handleSave}>
-                    Save
+                <button className="button primary-button"  onClick={handleSave} disabled={isLoading}>
+                    {isLoading ? 'Saving...' : 'Save'}
+                </button>
+
+                <button  className="button secondary-button"  onClick={() => navigate(`/catalog`)}>
+                    Cancel
                 </button>
             </form>
         </div>

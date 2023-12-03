@@ -1,49 +1,36 @@
-
+import React from 'react';
+import "./delete.css";
 import Button from 'react-bootstrap/Button';
-import Swal from 'sweetalert2';
-import 'sweetalert2/dist/sweetalert2.min.css';
+import Modal from 'react-bootstrap/Modal';
 
 const Delete = ({ onCancel, onConfirm }) => {
-    const handleDeleteConfirmation = () => {
-        Swal.fire({
-          title: 'Are you sure?',
-          text: 'You won\'t be able to revert this!',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
-          console.log('Result:', result); // Check the result in the console
-          if (result.isConfirmed) {
-            console.log('Confirmed!'); // Check if this log statement is reached
-            onCancel();
-            onConfirm();
-          }
-        });
-      };
+  const handleConfirm = () => {
+    onConfirm();
+    onCancel();
+  };
 
   return (
-    <div className="overlay">
-      <div className="confirm-container">
-        <header className="headers">
-          <h2>Are you sure you want to delete this ship?</h2>
-          <Button onClick={onCancel} variant="success">Close</Button>
-        </header>
-        <div className="actions">
-          <div id="form-actions">
-            <button
-              id="action-save"
-              className="btn"
-              type="button"
-              onClick={handleDeleteConfirmation}
-            >
-              Confirm
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Modal
+      show={true}  // Set to true to display the modal
+      onHide={onCancel}  // Handle closing the modal when clicking outside or pressing the close button
+    >
+      <Modal.Header closeButton>
+        <Modal.Title>Confirm Deletion</Modal.Title>
+      </Modal.Header>
+
+      <Modal.Body>
+        <p>Are you sure you want to delete this ship?</p>
+      </Modal.Body>
+
+      <Modal.Footer>
+        <Button variant="secondary" onClick={onCancel}>
+          Close
+        </Button>
+        <Button variant="primary" onClick={handleConfirm}>
+          Confirm
+        </Button>
+      </Modal.Footer>
+    </Modal>
   );
 };
 

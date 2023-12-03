@@ -2,6 +2,7 @@ import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import * as shipService from '../../services/shipService';
 import Button from 'react-bootstrap/Button';
+import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import "./info.css"
 import AuthContext from "../../contexts/authContext";
@@ -32,21 +33,31 @@ const ShipInfo = ({
   }, [shipId]);
 
   return (
-
-    <div className="overlay">
-      <div className="details-container">
-        <h2>{ship.name} Details</h2>
-        <p>Description: {ship.description}</p>
-        <p>Year Build: {ship.yearOfBuild}</p>
-        <p>Capacity: {ship.totalGuests}</p>
-        <img src={ship.imageUrl} alt="" className="news-card__image" />
-        {isOwner &&
-          <Button onClick={handleEditClick} variant="info">Edit </Button>
-        }
-        <Button onClick={onClose} variant="success">Close</Button>
-      </div>
-    </div>
+    <>
+      <Offcanvas.Header closeButton>
+        <Offcanvas.Title>{ship.name} Details</Offcanvas.Title>
+      </Offcanvas.Header>
+      <Offcanvas.Body>
+        <div className="details-container">
+          <h2>{ship.name}</h2>
+          <p>Description: {ship.description}</p>
+          <p>Year Build: {ship.yearOfBuild}</p>
+          <p>Capacity: {ship.totalGuests}</p>
+          <img src={ship.imageUrl} alt="" className="news-card__image" />
+          {isOwner && (
+            <Button onClick={handleEditClick} variant="info">
+              Edit
+            </Button>
+          )}
+        </div>
+      </Offcanvas.Body>
+    </>
   )
 }
 
 export default ShipInfo;
+
+// {
+//   isOwner &&
+//     <Button onClick={handleEditClick} variant="info">Edit </Button>
+// }
