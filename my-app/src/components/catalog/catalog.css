@@ -21,7 +21,7 @@
   color: #4e2121;
 }
 
-h2{
+h2 {
   color: #00295b;
   font-family: 'Questa', sans-serif;
   margin-top: 20px;
@@ -60,6 +60,7 @@ img {
   max-width: 50%;
 
 }
+
 p {
 
   -webkit-text-size-adjust: 100%;
@@ -126,31 +127,20 @@ p {
   text-decoration: none;
 }
 
-.my-component {
-  font-family: 'Questa', sans-serif;
-  font-weight: 500;
-  font-style: italic;
-  font-weight: 400;
-  font-size: 36px;
-  text-transform: none;
-  line-height: 1.2em;
-  color: #fff;
-  text-shadow: 1px 1px #333;
-  font-style: italic;
-  /* Add other styles here */
-}
+
 
 .latest-ships-heading {
-  color: #0066cc; /* Change color as needed */
-  font-size: 24px; /* Adjust font size as needed */
+  /* Change color as needed */
+  font-family: 'Questa', sans-serif;
   font-style: italic;
-    font-weight: 500;
-    font-style: italic;
-    font-weight: 400;
-    font-size: 36px;
-    text-transform: none;
-    line-height: 1.2em;
-    color: #fff;
-    text-shadow: 1px 1px #333;
+  height: 50%;
+  font-weight: 400;
+  font-size: 56px;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+
   /* Add more styles as needed */
 }

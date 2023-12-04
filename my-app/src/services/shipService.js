@@ -21,7 +21,6 @@ export const getLatest = async () => {
       const sortedShips = ships.sort((a, b) => {
         return b.yearOfBuild - a.yearOfBuild;
       });
-     console.log(sortedShips);
       return sortedShips.slice(0, 2);
   } catch (error) {
       console.error('Error fetching latest ships:', error);

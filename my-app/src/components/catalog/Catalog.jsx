@@ -73,25 +73,34 @@ const Catalog = () => {
     <>
       <div className="my-component">
 
-        {latestShips.length > 0 ? (
-          <Carousel activeIndex={index} onSelect={handleSelect}
-            style={{ maxWidth: '2000px',marginBottom: '100px' }}>
-            {latestShips.map(ship => (
-              <Carousel.Item key={ship._id}>
-                <img className="d-block w-100" src="https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10210-50061/resize/1920x0/options/keepaspectratio.png" alt={ship.name} />
-                <Carousel.Caption>
-                  <h3 className="latest-ships-heading">Introducing Our Newest Super Ships</h3>
-                  <Link to={Path.Home}>
-                    <button>View More</button>
-                  </Link>
-                  <p>{ship.cruiseLine}</p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            ))}
-          </Carousel>
-        ) : (
-          <p>No Ships yet</p>
-        )}
+
+        <Carousel activeIndex={index} onSelect={handleSelect}
+          style={{ maxWidth: '2000px', marginBottom: '100px' }}>
+
+          <Carousel.Item>
+            <img src="https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10210-50061/resize/1920x0/options/keepaspectratio.png" alt="image" />
+            <Carousel.Caption className="latest-ships-heading">
+              <h3>Introducing Our Newest Super Ships</h3>
+              <div className="btn-info">
+                <Link to={Path.Home}>
+                  <button>View More</button>
+                </Link>
+              </div>
+            </Carousel.Caption>
+          </Carousel.Item>
+          <Carousel.Item>
+            <img src="https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/9609-50061/resize/1920x0/options/keepaspectratio.jpg" alt="image" />
+            <Carousel.Caption className="latest-ships-heading">
+              <h3>Travel Europe as a Solo Traveller in 2023</h3>
+              <div className="btn-info">
+                <Link to={Path.Home}>
+                  <button>Learn More</button>
+                </Link>
+              </div>
+            </Carousel.Caption>
+          </Carousel.Item>
+        </Carousel>
+
       </div>
 
       {ships.map(ship => (
