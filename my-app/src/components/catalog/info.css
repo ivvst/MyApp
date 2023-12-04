@@ -27,4 +27,6 @@ Add your styles to a CSS file
   display: block; /* Ensure the image doesn't have extra spacing below it */
   margin: 0 auto; /* Center the image horizontally */
 }
-
+.image{
+  max-width: 300%;
+}

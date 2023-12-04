@@ -11,8 +11,12 @@
   display: block;
   max-width: 100%;
   height: auto;
+  background-image: 'https://images.wallpaperscraft.com/image/single/blue_spots_background_monochrome_69084_2560x1024.jpg';
 }
+h3{
+  font-family: libel_suitregular;
 
+}
 /* Add more styles as needed */
 /* Button Styles */
 .button {
@@ -22,6 +26,7 @@
   font-weight: bold;
   text-align: center;
   text-decoration: none;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   cursor: pointer;
   border: none;
   border-radius: 5px;
@@ -31,15 +36,11 @@
 .primary-button {
   background-color: #007bff; /* Primary color - adjust as needed */
   color: #fff; /* Text color for contrast */
+  margin: 10px;
 }
 
 .secondary-button {
-  background-color: #6c757d; /* Secondary color - adjust as needed */
-  color: #fff; /* Text color for contrast */
-}
-
-.danger-button {
-  background-color: #dc3545; /* Danger color - adjust as needed */
+  background-color: #dab2bb; /* Secondary color - adjust as needed */
   color: #fff; /* Text color for contrast */
 }
 

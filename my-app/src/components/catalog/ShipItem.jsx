@@ -12,6 +12,7 @@ const ShipItem = ({
   _ownerId,
   name,
   imageUrl,
+  rivers,
   cruiseLine,
   ownerName,
   onInfoClick,
@@ -53,7 +54,7 @@ const ShipItem = ({
         {/* <p>S.S. Joie de Vivre brings the “joy of living” to the rivers of France. Step aboard your floating pied-à-terre in France, featuring handcrafted furniture and fine antiques, original artwork, and...</p>
         {/* <a role="button" className="btn btn-secondary" href="/us/ships/ss-joie-de-vivre">View the Ship</a>
         <a role="button" className="btn btn-primary" href="/us/river-cruise?ships=ss-joie-de-vivre">View Cruises</a> */}
-        <p><strong>River:</strong> <em>Seine</em><span className="separator">/</span><strong>Guests:</strong> <em>128</em></p> 
+        <p><strong>River/s:</strong> <em>{rivers}</em><span className="separator">/</span><strong>Guests:</strong> <em>128</em></p> 
 
         <Button className="btn btn-secondary" variant="info" onClick={infoClickHandler}>Read  More</Button>
         {

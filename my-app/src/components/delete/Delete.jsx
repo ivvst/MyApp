@@ -1,13 +1,27 @@
 import React from 'react';
-import "./delete.css";
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import * as shipService from "../../services/shipService"
 
-const Delete = ({ onCancel, onConfirm }) => {
-  const handleConfirm = () => {
-    onConfirm();
+
+import "./delete.css";
+
+const Delete = ({ onCancel, onConfirm, shipId }) => {
+  const handleConfirm = async () => {
+    // Now you have access to shipId directly
+    await onConfirm(shipId);
     onCancel();
   };
+
+  const [ship, setShip] = useState({});
+
+  useEffect(() => {
+    shipService.getOne(shipId)
+      .then(result => setShip(result));
+  }, [shipId]);
+
 
   return (
     <Modal
@@ -17,10 +31,14 @@ const Delete = ({ onCancel, onConfirm }) => {
       <Modal.Header closeButton>
         <Modal.Title>Confirm Deletion</Modal.Title>
       </Modal.Header>
-
       <Modal.Body>
-        <p>Are you sure you want to delete this ship?</p>
+      {ship ? (
+          <p>Are you sure you want to delete {ship.name}?</p>
+        ) : (
+          <p>Loading ship data...</p>
+        )}
       </Modal.Body>
+
 
       <Modal.Footer>
         <Button variant="secondary" onClick={onCancel}>
