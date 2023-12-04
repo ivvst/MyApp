@@ -37,7 +37,7 @@ const Edit = () => {
         const newErrors = {};
 
         // Validate required fields
-        const requiredFields = ['name', 'cruiseLine', 'imageUrl', 'totalGuests', 'yearOfBuild', 'description', 'ownerName'];
+        const requiredFields = ['name', 'cruiseLine', 'deckUrl', 'rivers', 'imageUrl', 'totalGuests', 'yearOfBuild', 'description', 'ownerName'];
         requiredFields.forEach((field) => {
             if (!shipData[field]) {
                 newErrors[field] = 'This field is required';
@@ -75,7 +75,7 @@ const Edit = () => {
 
     return (
         <div className="edit-container">
-            <h2>Edit Ship</h2>
+            <h3>Update your Ship-info</h3>
             <form>
                 <div>
                     <label htmlFor="name">Name:</label>
@@ -88,9 +88,19 @@ const Edit = () => {
                     {errors.cruiseLine && <span className="error">{errors.cruiseLine}</span>}
                 </div>
                 <div>
+                    <label htmlFor="rivers">River Line:</label>
+                    <input type="text" id="rivers" name="rivers" value={shipData.rivers} onChange={handleChange} />
+                    {errors.rivers && <span className="error">{errors.rivers}</span>}
+                </div>
+                <div>
                     <label htmlFor="imageUrl">Image URL:</label>
                     <input type="text" id="imageUrl" name="imageUrl" value={shipData.imageUrl} onChange={handleChange} />
                     {errors.imageUrl && <span className="error">{errors.imageUrl}</span>}
+                </div>
+                <div>
+                    <label htmlFor="deckUrl">Image URL:</label>
+                    <input type="text" id="deckUrl" name="deckUrl" value={shipData.deckUrl} onChange={handleChange} />
+                    {errors.deckUrl && <span className="error">{errors.deckUrl}</span>}
                 </div>
                 <div>
                     <label htmlFor="totalGuests">Total Guests:</label>

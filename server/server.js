@@ -1334,7 +1334,13 @@
                 email: "admin@abv.bg",
                 username: "Admin",
                 hashedPassword: "fac7060c3e17e6f151f247eacb2cd5ae80b8c36aedb8764e18a41bbdc16aa302"
+            },
+            "5fdb2a13-16b1-4465-a424-51b9aac90a94": {
+                email: "ivs@abv.bg",
+                username: "Ivy",
+                hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
             }
+
         },
         sessions: {
         }
@@ -1485,12 +1491,14 @@
         ships: {
             "1240549d-f0e0-497e-ab99-eb8f703713d7": {
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
-                name: "SS Catherine",
+                name: "S.S. Catherine",
                 description: "Test Creator",
                 totalGuests: 220,
+                rivers: "Rhône, Saône",
                 yearOfBuild: 2022,
                 cruiseLine: "Amsterdam Basel",
                 imageUrl: "https://i.postimg.cc/NjjSKCtk/ss-catherine.webp",
+                deckUrl: "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/2748-50033/options/keepaspectratio/uw-deckplan-sc-2020",
                 _createdOn: 1614935055353,
                 _id: "1240549d-f0e0-497e-ab99-eb8f703713d7"
             },
@@ -1499,33 +1507,52 @@
                 name: "Bon Voyage",
                 description: "TestTwo",
                 totalGuests: 170,
+                rivers: " Dordogne, Garonne",
                 yearOfBuild: 2020,
                 cruiseLine: "Lyon Arles",
                 imageUrl: "https://i.postimg.cc/PqkfskY5/ss-bon-voyage.webp",
+                deckUrl: "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/2739-50033/options/keepaspectratio/uw-deckplan-bv",
                 _createdOn: 1614935181470,
                 _id: "143e5265-333e-4150-80e4-16b61de31aa0"
             },
             "a9bae6d8-793e-46c4-a9db-deb9e3484909": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-                name: "SS River Princess",
+                name: "S.S. River Princess",
                 description: "Test Three",
                 totalGuests: 190,
+                rivers: " Danube, Rhine, Main",
                 yearOfBuild: 2023,
                 cruiseLine: "Paris Lyon",
                 imageUrl: "https://i.postimg.cc/DygRyk9z/river-princess.webp",
+                deckUrl: "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/9820-50033/options/keepaspectratio/uw-deckplan-rp-2023",
                 _createdOn: 1614935268135,
                 _id: "a9bae6d8-793e-46c4-a9db-deb9e3484909"
             },
             "b87ae6d8-793e-46c4-a9db-deb9e3484909": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
-                name: "SS Elizabeth ",
+                name: "S.S. Elizabeth ",
                 description: "Test Three",
                 totalGuests: 100,
+                rivers: "Rhine Lagoon",
                 yearOfBuild: 2022,
                 cruiseLine: "Paris Lyon",
                 imageUrl: "https://i.postimg.cc/43K05KmK/ss-elisabeth.webp",
+                deckUrl: "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10162-50061/options/keepaspectratio/uw-se-deckplan-2024",
                 _createdOn: 1614935268135,
                 _id: "b87ae6d8-793e-46c4-a9db-deb9e3484909"
+            },
+            "a77c2f02-19c5-43f0-b50d-bec702369cf7": {
+                _ownerId: "5fdb2a13-16b1-4465-a424-51b9aac90a94",
+                name: "S.S. La Venezia",
+                description: "The River Countess underwent a complete design renovation in 2020, debuting as the S.S. La Venezia to bring guests an enhanced luxury experience inspired by Northern Italy. The redesign of the S.S. La Venezia drew influence from the fine Fortuny fabrics displayed prominently onboard. Murano glass, gilded accents, and artistic etched elements pay homage to popular Venetian aesthetics of the early 20th century, creating an onboard atmosphere that is at once elegant and nostalgic.",
+                totalGuests: "130",
+                rivers: "Venice Lagoon",
+                yearOfBuild: "2020",
+                "cruiseLine": "Milan-Istanbul",
+                "imageUrl": "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/5721-50035/resize/600x0/options/keepaspectratio.jpg",
+                "deckUrl": "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/4016-50033/options/keepaspectratio/uw-deckplan-lv",
+                _createdOn: 1701682694333,
+                _id: "a77c2f02-19c5-43f0-b50d-bec702369cf7"
             },
 
         },

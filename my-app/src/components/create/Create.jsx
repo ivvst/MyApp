@@ -14,7 +14,7 @@ const Create = () => {
     const shipsData = Object.fromEntries(new FormData(e.currentTarget));
     try {
       console.log(shipsData);
-       await shipService.create(shipsData);
+      await shipService.create(shipsData);
       navigate('/catalog');
     } catch (error) {
       console.log(error);
@@ -32,8 +32,14 @@ const Create = () => {
           <label htmlFor="cruiseLine">Cruise-Line:</label>
           <input type="text" id="cruiseLine" name="cruiseLine" placeholder="Enter cruise-line ..." />
 
+          <label htmlFor="rivers">River-Line:</label>
+          <input type="text" id="rivers" name="rivers" placeholder="Enter cruise-line ..." />
+
           <label htmlFor="ship-img">Image:</label>
           <input type="text" id="imageUrl" name="imageUrl" placeholder="Add a photo..." />
+
+          <label htmlFor="deck-img">DeckPlanImage:</label>
+          <input type="text" id="deckUrl" name="deckUrl" placeholder="Add a plan..." />
 
           <h5>Details for the Vessel</h5>
           <label htmlFor="totalGuests">Total-Guests:</label>
@@ -45,9 +51,12 @@ const Create = () => {
           <label htmlFor="description">Description:</label>
           <textarea name="description" id="description"></textarea>
 
-         
+
 
           <input className="btn submit" type="submit" value="Create Ship" />
+          <button className="button secondary-button" onClick={() => navigate(`/catalog`)}>
+            Cancel
+          </button>
         </div>
       </form>
     </section >

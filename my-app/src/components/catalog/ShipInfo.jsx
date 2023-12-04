@@ -38,18 +38,23 @@ const ShipInfo = ({
         <Offcanvas.Title>{ship.name} Details</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body>
-        <div className="details-container">
-          <h2>{ship.name}</h2>
-          <p>Description: {ship.description}</p>
-          <p>Year Build: {ship.yearOfBuild}</p>
-          <p>Capacity: {ship.totalGuests}</p>
-          <img src={ship.imageUrl} alt="" className="news-card__image" />
-          {isOwner && (
-            <Button onClick={handleEditClick} variant="info">
-              Edit
-            </Button>
-          )}
-        </div>
+        <p>Description: {ship.description}</p>
+        <p>Year Build: {ship.yearOfBuild}</p>
+        <p>Capacity: {ship.totalGuests}</p>
+        <img src={ship.deckUrl} alt="" className="image" />
+        {isOwner && (
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+        <Button
+          onClick={handleEditClick}
+          variant="info"
+          style={{ padding: '5px 40px', margin: '20px' }}
+        >
+          Edit
+        </Button>
+      </div>
+      
+        )}
+
       </Offcanvas.Body>
     </>
   )

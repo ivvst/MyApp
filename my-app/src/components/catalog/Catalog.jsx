@@ -8,6 +8,9 @@ import * as shipService from "../../services/shipService.js";
 import Path from "../../path.js";
 import Carousel from 'react-bootstrap/Carousel';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import Modal from 'react-bootstrap/Modal';
+import Button from "react-bootstrap/esm/Button.js";
+import { Link } from "react-router-dom";
 
 const Catalog = () => {
   const [ships, setShips] = useState([]);
@@ -55,6 +58,7 @@ const Catalog = () => {
 
   const handleDeleteConfirm = async () => {
 
+
     await shipService.remove(selectedShip._id);
 
 
@@ -67,24 +71,28 @@ const Catalog = () => {
 
   return (
     <>
-      <h3>Latest Ships</h3>
+      <div className="my-component">
 
-      {latestShips.length > 0 ? (
-        <Carousel activeIndex={index} onSelect={handleSelect}
-        style={{ maxWidth: '900px', margin: 'auto' }}>
-          {latestShips.map(ship => (
-            <Carousel.Item key={ship._id}>
-              <img className="d-block w-100" src={ship.imageUrl} alt={ship.name} />
-              <Carousel.Caption>
-                <h3>{ship.name}</h3>
-                <p>{ship.cruiseLine}</p>
-              </Carousel.Caption>
-            </Carousel.Item>
-          ))}
-        </Carousel>
-      ) : (
-        <p>No Ships yet</p>
-      )}
+        {latestShips.length > 0 ? (
+          <Carousel activeIndex={index} onSelect={handleSelect}
+            style={{ maxWidth: '2000px',marginBottom: '100px' }}>
+            {latestShips.map(ship => (
+              <Carousel.Item key={ship._id}>
+                <img className="d-block w-100" src="https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10210-50061/resize/1920x0/options/keepaspectratio.png" alt={ship.name} />
+                <Carousel.Caption>
+                  <h3 className="latest-ships-heading">Introducing Our Newest Super Ships</h3>
+                  <Link to={Path.Home}>
+                    <button>View More</button>
+                  </Link>
+                  <p>{ship.cruiseLine}</p>
+                </Carousel.Caption>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        ) : (
+          <p>No Ships yet</p>
+        )}
+      </div>
 
       {ships.map(ship => (
         <ShipItem key={ship._id} onInfoClick={openShipDetails}
@@ -112,6 +120,7 @@ const Catalog = () => {
         <Delete
           onCancel={() => setShowDeleteModal(false)}
           onConfirm={() => handleDeleteConfirm(selectedShip._id)}
+          shipId={selectedShip._id}
         />
       )}
     </>
