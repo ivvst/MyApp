@@ -1,11 +1,13 @@
 import { useState, useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+
+import AuthContext from "../../contexts/authContext";
 import * as shipService from '../../services/shipService';
+
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
 import "./info.css"
-import AuthContext from "../../contexts/authContext";
 
 
 const ShipInfo = ({
@@ -14,6 +16,8 @@ const ShipInfo = ({
 
 }) => {
   const [ship, setShip] = useState({});
+
+
 
   const { userId } = useContext(AuthContext)
 
@@ -25,7 +29,6 @@ const ShipInfo = ({
 
     navigate(`/edit/${shipId}`);
   };
-  console.log(setShip);
 
   useEffect(() => {
     shipService.getOne(shipId)
@@ -43,17 +46,18 @@ const ShipInfo = ({
         <p>Capacity: {ship.totalGuests}</p>
         <img src={ship.deckUrl} alt="" className="image" />
         {isOwner && (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <Button
-          onClick={handleEditClick}
-          variant="info"
-          style={{ padding: '5px 40px', margin: '20px' }}
-        >
-          Edit
-        </Button>
-      </div>
-      
+          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Button
+              onClick={handleEditClick}
+              variant="info"
+              style={{ padding: '5px 40px', margin: '20px' }}
+            >
+              Edit
+            </Button>
+          </div>
         )}
+
+
 
       </Offcanvas.Body>
     </>

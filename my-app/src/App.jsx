@@ -17,6 +17,7 @@ import Edit from './components/edit/Edit.jsx';
 import Footer from "./components/footer/Footer.jsx";
 import Logout from './components/logout/Logout.jsx';
 import AuthGuards from './components/guards/AuthGuards.jsx';
+import AuthorizedCreateGalleryForm from './components/guards/AuthorizedCreateGalleryForm.jsx';
 
 
 
@@ -34,6 +35,7 @@ function App() {
           <Routes>
             <Route path={Path.Home} element={<Home />} />
             <Route path="/details/:shipId" element={<ShipInfo />} />
+            <Route path="/create-gallery/:shipId" element={<AuthorizedCreateGalleryForm />} />
             <Route path={Path.Catalog} element={<Catalog />} />
 
             <Route path="/login" element={<Login />} />

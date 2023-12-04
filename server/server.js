@@ -1399,7 +1399,7 @@
                 _createdOn: 1613551388703
             }
         },
-        comments: {
+        review: {
             "0a272c58-b7ea-4e09-a000-7ec988248f66": {
                 _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
                 content: "Great recipe!",
@@ -1486,7 +1486,22 @@
         },
         furniture: {
         },
-        orders: {
+        gallery: {
+            "1240549d-f0e0-497e-ab99-eb8f703713d7": {
+                name: "S.S. Catherine",
+                _id: "1240549d-f0e0-497e-ab99-eb8f703713d7",
+                _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+                imageUrl: "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/4675-50061/options/keepaspectratio/uw-sc-hero",
+                grandSuite: "1 (38 sq m)",
+                suite: "5 (28.3 sq m)",
+                deluxeBalcony: "23(18 sq m)",
+                frenchBalcony: "38(18 sq m)",
+                classic: "12(15 sq m)",
+                lenght: "135 m",
+                width: "11.4 m",
+
+            },
+
         },
         ships: {
             "1240549d-f0e0-497e-ab99-eb8f703713d7": {
