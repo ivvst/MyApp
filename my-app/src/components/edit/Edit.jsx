@@ -37,7 +37,7 @@ const Edit = () => {
         const newErrors = {};
 
         // Validate required fields
-        const requiredFields = ['name', 'cruiseLine', 'deckUrl', 'rivers', 'imageUrl', 'totalGuests', 'yearOfBuild', 'description', 'ownerName'];
+        const requiredFields = ['name', 'cruiseLine', 'deckUrl', 'rivers', , 'backImage', 'grandSuite', 'suite', 'deluxeBalcony', 'frenchBalcony', 'classic', 'lenght', 'width', 'imageUrl', 'totalGuests', 'yearOfBuild', 'description', 'ownerName'];
         requiredFields.forEach((field) => {
             if (!shipData[field]) {
                 newErrors[field] = 'This field is required';
@@ -98,7 +98,12 @@ const Edit = () => {
                     {errors.imageUrl && <span className="error">{errors.imageUrl}</span>}
                 </div>
                 <div>
-                    <label htmlFor="deckUrl">Image URL:</label>
+                    <label htmlFor="imageUrl">Outer-Image URL:</label>
+                    <input type="text" id="backImage" name="backImage" value={shipData.backImage} onChange={handleChange} />
+                    {errors.imageUrl && <span className="error">{errors.imageUrl}</span>}
+                </div>
+                <div>
+                    <label htmlFor="deckUrl">Deck-Plan</label>
                     <input type="text" id="deckUrl" name="deckUrl" value={shipData.deckUrl} onChange={handleChange} />
                     {errors.deckUrl && <span className="error">{errors.deckUrl}</span>}
                 </div>
@@ -117,11 +122,46 @@ const Edit = () => {
                     <textarea id="description" name="description" value={shipData.description} onChange={handleChange} />
                     {errors.description && <span className="error">{errors.description}</span>}
                 </div>
-                <button className="button primary-button"  onClick={handleSave} disabled={isLoading}>
+                <div>
+                    <label htmlFor="grandSuite">Grand Suite:</label>
+                    <input type="text" id="grandSuite" name="grandSuite" value={shipData.grandSuite} onChange={handleChange} />
+                    {errors.grandSuite && <span className="error">{errors.grandSuite}</span>}
+                </div>
+                <div>
+                    <label htmlFor="suite">Suite: </label>
+                    <input type="text" id="suite" name="suite" value={shipData.suite} onChange={handleChange} />
+                    {errors.suite && <span className="error">{errors.suite}</span>}
+                </div>
+                <div>
+                    <label htmlFor="deluxeBalcony">Deluxe Balcony Line:</label>
+                    <input type="text" id="deluxeBalcony" name="deluxeBalcony" value={shipData.deluxeBalcony} onChange={handleChange} />
+                    {errors.deluxeBalcony && <span className="error">{errors.deluxeBalcony}</span>}
+                </div>
+                <div>
+                    <label htmlFor="frenchBalcony">French Balcony Line:</label>
+                    <input type="text" id="frenchBalcony" name="frenchBalcony" value={shipData.frenchBalcony} onChange={handleChange} />
+                    {errors.frenchBalcony && <span className="error">{errors.frenchBalcony}</span>}
+                </div>
+                <div>
+                    <label htmlFor="classic">Classic-Room Line:</label>
+                    <input type="text" id="classic" name="classic" value={shipData.classic} onChange={handleChange} />
+                    {errors.classic && <span className="error">{errors.classic}</span>}
+                </div>
+                <div>
+                    <label htmlFor="lenght">Lenght Line:</label>
+                    <input type="text" id="lenght" name="lenght" value={shipData.lenght} onChange={handleChange} />
+                    {errors.lenght && <span className="error">{errors.lenght}</span>}
+                </div>
+                <div>
+                    <label htmlFor="width">Width Line:</label>
+                    <input type="text" id="width" name="width" value={shipData.width} onChange={handleChange} />
+                    {errors.width && <span className="error">{errors.width}</span>}
+                </div>
+                <button className="button primary-button" onClick={handleSave} disabled={isLoading}>
                     {isLoading ? 'Saving...' : 'Save'}
                 </button>
 
-                <button  className="button secondary-button"  onClick={() => navigate(`/catalog`)}>
+                <button className="button secondary-button" onClick={() => navigate(`/catalog`)}>
                     Cancel
                 </button>
             </form>

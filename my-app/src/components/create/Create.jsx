@@ -44,12 +44,47 @@ const Create = () => {
           <h5>Details for the Vessel</h5>
           <label htmlFor="totalGuests">Total-Guests:</label>
           <input type="number" id="totalGuests" name="totalGuests" min="50" placeholder="10" />
-
+   
           <label htmlFor="yearOfBuild">Year of Build:</label>
           <input type="number" id="yearOfBuild" name="yearOfBuild" min="1000" placeholder="2000" />
 
           <label htmlFor="description">Description:</label>
           <textarea name="description" id="description"></textarea>
+
+          <h6>Gallery Details</h6>
+          <div>
+        <label htmlFor="ship-img">Image:</label>
+        <input type="text" id="backImage" name="backImage" placeholder="Add a photo..." />
+
+      </div>
+          <div>
+            <label htmlFor="grandSuite">Grand-Suite:</label>
+            <input type="text" id="grandSuite" name="grandSuite" placeholder="2 (28 sq m)" />
+          </div>
+          <div>
+            <label htmlFor="suite">Suite:</label>
+            <input type="text" id="suite" name="suite" placeholder="2 (28 sq m)" />
+          </div>
+          <div>
+            <label htmlFor="deluxeBalcony">Deluxe-Balcony:</label>
+            <input type="text" id="deluxeBalcony" name="deluxeBalcony" placeholder="2 (28 sq m)" />
+          </div>
+          <div>
+            <label htmlFor="frenchBalcony">French-Balcony:</label>
+            <input type="text" id="frenchBalcony" name="frenchBalcony" placeholder="2 (28 sq m)" />
+          </div>
+          <div>
+            <label htmlFor="classic">Classic:</label>
+            <input type="text" id="classic" name="classic" placeholder="2 (28 sq m)" />
+          </div>
+          <div>
+            <label htmlFor="lenght">Lenght:</label>
+            <input type="text" id="lenght" name="lenght" placeholder="80 m" />
+          </div>
+          <div>
+            <label htmlFor="width">Width:</label>
+            <input type="text" id="width" name="width" placeholder="6.4 m" />
+          </div>
 
 
 
