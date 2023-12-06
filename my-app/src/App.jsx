@@ -5,9 +5,9 @@ import { Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './contexts/authContext.jsx';
 import Path from './path.js';
 
+import Navigation from './components/navigation/Navigation.jsx';
 import Home from './components/home/Home.jsx';
 import Header from './components/header/Header.jsx';
-import Navigation from './components/Navigation.jsx';
 import Login from './components/login/Login.jsx';
 import Register from './components/register/Register.jsx';
 import Catalog from './components/catalog/Catalog.jsx';
@@ -17,20 +17,23 @@ import Edit from './components/edit/Edit.jsx';
 import Footer from "./components/footer/Footer.jsx";
 import Logout from './components/logout/Logout.jsx';
 import AuthGuards from './components/guards/AuthGuards.jsx';
+import OfflineErrorBoundary from './components/OfflineErrorBoundary.jsx';
+const NotFound = () => <h2>404 Not Found</h2>;
 
 
 
 function App() {
   return (
-    <AuthProvider>
+    <OfflineErrorBoundary>
+      <AuthProvider>
+        <div>
+          <Navigation />
+          <Header />
 
-      <div>
-        <Navigation />
-        <Header />
+
+          <main className="main">
 
 
-        <main className="main">
-        
             <Routes>
               <Route path={Path.Home} element={<Home />} />
               <Route path="/details/:shipId" element={<ShipInfo />} />
@@ -43,16 +46,15 @@ function App() {
                 <Route path={Path.Create} element={<Create />} />
                 <Route path='/edit/:shipId' element={<Edit />} />
                 <Route path={Path.Logout} element={<Logout />} />
+                <Route path="*" element={<NotFound />} />
               </Route>
 
             </Routes>
-
-          
-
-          <Footer />
-        </main>
-      </div>
-    </AuthProvider>
+            <Footer />
+          </main>
+        </div>
+      </AuthProvider >
+    </OfflineErrorBoundary >
   );
 }
 
