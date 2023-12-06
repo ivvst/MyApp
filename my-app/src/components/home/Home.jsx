@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Login from "../login/Login";
 import Button from 'react-bootstrap/Button';
 import './home.css'
+import ErrorComponent from '../ErrorComponent';
 
 const Home = () => {
   return (
