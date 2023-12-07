@@ -50,10 +50,25 @@ Services in MyApp handle specific functionalities, such as authentication and CR
 
 ## Custom Hooks
 
-Custom hooks play a crucial role in extending and optimizing the application's functionality. The application features custom hooks like useForm for handling form control logic and usePersistedState for persisting user sessions between page reloads. These hooks encapsulate complex behaviors into reusable functions, promoting code maintainability and reducing redundancy.
+The application employs several custom hooks to enhance functionality:
+
+### `useForm`
+
+`useForm` is a versatile hook tailored for controlling forms throughout the application. It offers features for form input validation, handling form submissions, and resetting form data. This hook simplifies the complex logic associated with forms, promoting cleaner and more maintainable code.
+
+### `usePersistedState`
+
+`usePersistedState` is crucial for maintaining user sessions persistently between page reloads. This hook leverages local storage to store and retrieve data, ensuring a seamless user experience even after refreshing the page. By encapsulating this behavior, the hook promotes code reusability and consistency.
+
+## Route Guards
+Route guards prevent guest users from accessing private user pages, ensuring that only authenticated users can access restricted content.Futhermore  this ensures that only authorized ship owners can perform actions such as editing or deleting their ship details.
+
+
+## Request
+The application uses a request to build requests.
+
 
 ### License
-
-MyApp is open-source software released under the [MIT License](https://opensource.org/licenses/MIT). This license grants users the freedom to use, modify, and distribute the software for both personal and commercial purposes. Users are provided with the software "as is" without any warranty or liability.
+MyApp is open-source software released under the [MIT License](https://opensource.org/licenses/MIT).
 
 For more details, please refer to the [MIT License](https://opensource.org/licenses/MIT) documentation.
