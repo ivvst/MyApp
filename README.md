@@ -1,6 +1,9 @@
 # MyApp
 
 MyApp is a river cruise ship application built using create-vite-react, react-bootstrap, ant design, and sweetalert. The application allows users to explore a catalog of river cruise ships. Guests can access the catalog page and read more about each ship. Logged-in users have additional features such as viewing ship galleries with detailed information for each room and the ability to add reviews for each ship. Ship owners can edit and delete their own ship details.
+## SoftUni Practice Server
+
+This application interacts with the [SoftUni Practice Server](https://github.com/softuni-practice-server/softuni-practice-server)
 
 ## Installation
 
