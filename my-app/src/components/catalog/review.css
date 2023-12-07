@@ -1,0 +1,55 @@
+/* CSS for Review Section */
+.details-reviews {
+  margin-top: 20px;
+}
+
+.review {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+}
+
+.no-review {
+  color: #888;
+}
+
+/* CSS for Create Review Section */
+.create-review {
+  margin-top: 20px;
+}
+
+.create-review label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.create-review form {
+  display: flex;
+  flex-direction: column;
+}
+
+.create-review textarea {
+  height: 100px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.btn.submit {
+  background-color: #4caf50; /* Green */
+  color: white;
+  padding: 10px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn.submit:hover {
+  background-color: #45a049; /* Darker green on hover */
+}

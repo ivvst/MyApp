@@ -13,11 +13,12 @@ export const getAll = async (shipId) => {
     return result;
 };
 
-export const create = async (shipId, text) => {
-    const newComment = await request.post(baseUrl, {
-        shipId,
-        text,
+export const create = async (shipId, text, userRating) => {
+    const newReview = await request.post(baseUrl, {
+      shipId,
+      text,
+      rating: userRating, // Include the userRating in the request payload
     });
-
-    return newComment;
-};
+  
+    return newReview;
+  };
