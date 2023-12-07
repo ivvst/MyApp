@@ -54,6 +54,7 @@ export default function Register() {
 
   const input =
   {
+    width:"100%",
     padding: '12px',
     border: 'none',
     borderRadius: ' 5px',
@@ -68,43 +69,55 @@ export default function Register() {
       <div className="form-container" style={formContainerStyle}>
         <h1>Register</h1>
         <form onSubmit={onSubmit}>
-          <label htmlFor="username">Username</label>
-          <input
-            style={input}
-            type="username"
-            id="username"
-            name="username"
-            placeholder="YourUsername"
-            onChange={onChange}
-            value={values[RegisterFormKeys.Username]}
-            required
-          />
+          <div>
 
-          <label htmlFor="email">Email</label>
-          <input style={input}
-            type="email"
-            id="email"
-            name="email"
-            placeholder="example@email.com"
-            onChange={onChange}
-            values={values[RegisterFormKeys.Email]}
-            required />
-          <label htmlFor="password">Password</label>
-          <input style={input}
-            type="password"
-            id="password"
-            name="password"
-            onChange={onChange}
-            values={values[RegisterFormKeys.Password]}
-            required />
-          <label htmlFor="confirm-password">Confirm Password</label>
-          <input style={input}
-            type="password"
-            name="confirm-password"
-            id="confirm-password"
-            onChange={onChange}
-            values={values[RegisterFormKeys.ConfirmPassword]}
-            required />
+            <label htmlFor="username">Username</label>
+            <input
+              style={input}
+              type="username"
+              id="username"
+              name="username"
+              placeholder="YourUsername"
+              onChange={onChange}
+              value={values[RegisterFormKeys.Username]}
+              required
+            />
+          </div>
+          <div>
+
+            <label htmlFor="email">Email</label>
+            <input style={input}
+              type="email"
+              id="email"
+              name="email"
+              placeholder="example@email.com"
+              onChange={onChange}
+              values={values[RegisterFormKeys.Email]}
+              required />
+          </div>
+
+          <div>
+            <label htmlFor="password">Password</label>
+            <input style={input}
+              type="password"
+              id="password"
+              name="password"
+              onChange={onChange}
+              values={values[RegisterFormKeys.Password]}
+              required />
+          </div>
+
+          <div>
+
+            <label htmlFor="confirm-password">Confirm Password</label>
+            <input style={input}
+              type="password"
+              name="confirm-password"
+              id="confirm-password"
+              onChange={onChange}
+              values={values[RegisterFormKeys.ConfirmPassword]}
+              required />
+          </div>
           <button type="submit" style={buttonStyle} >
             Register
           </button>

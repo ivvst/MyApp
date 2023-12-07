@@ -76,62 +76,72 @@ const Edit = () => {
     return (
         <div className="edit-container">
             <h3>Update your Ship-info</h3>
-            <form>
+            <form className="edit-form">
                 <div>
                     <label htmlFor="name">Name:</label>
                     <input type="text" id="name" name="name" value={shipData.name} onChange={handleChange} />
                     {errors.name && <span className="error">{errors.name}</span>}
                 </div>
-                <div>
-                    <label htmlFor="cruiseLine">Cruise Line:</label>
-                    <input type="text" id="cruiseLine" name="cruiseLine" value={shipData.cruiseLine} onChange={handleChange} />
-                    {errors.cruiseLine && <span className="error">{errors.cruiseLine}</span>}
-                </div>
-                <div>
-                    <label htmlFor="rivers">River Line:</label>
-                    <input type="text" id="rivers" name="rivers" value={shipData.rivers} onChange={handleChange} />
-                    {errors.rivers && <span className="error">{errors.rivers}</span>}
-                </div>
-                <div>
-                    <label htmlFor="imageUrl">Image URL:</label>
-                    <input type="text" id="imageUrl" name="imageUrl" value={shipData.imageUrl} onChange={handleChange} />
-                    {errors.imageUrl && <span className="error">{errors.imageUrl}</span>}
-                </div>
-                <div>
-                    <label htmlFor="imageUrl">Outer-Image URL:</label>
-                    <input type="text" id="backImage" name="backImage" value={shipData.backImage} onChange={handleChange} />
-                    {errors.imageUrl && <span className="error">{errors.imageUrl}</span>}
-                </div>
-                <div>
-                    <label htmlFor="deckUrl">Deck-Plan</label>
-                    <input type="text" id="deckUrl" name="deckUrl" value={shipData.deckUrl} onChange={handleChange} />
-                    {errors.deckUrl && <span className="error">{errors.deckUrl}</span>}
-                </div>
-                <div>
-                    <label htmlFor="totalGuests">Total Guests:</label>
-                    <input type="number" id="totalGuests" name="totalGuests" value={shipData.totalGuests || ''} onChange={handleChange} />
-                    {errors.totalGuests && <span className="error">{errors.totalGuests}</span>}
-                </div>
+
                 <div>
                     <label htmlFor="yearOfBuild">Year of Build:</label>
                     <input type="number" id="yearOfBuild" name="yearOfBuild" value={shipData.yearOfBuild || ''} onChange={handleChange} />
                     {errors.yearOfBuild && <span className="error">{errors.yearOfBuild}</span>}
                 </div>
                 <div>
+                    <label htmlFor="cruiseLine">Cruise Line:</label>
+                    <input type="text" id="cruiseLine" name="cruiseLine" value={shipData.cruiseLine} onChange={handleChange} />
+                    {errors.cruiseLine && <span className="error">{errors.cruiseLine}</span>}
+                </div>
+
+                <div>
+                    <label htmlFor="imageUrl">Image URL:</label>
+                    <input type="text" id="imageUrl" name="imageUrl" value={shipData.imageUrl} onChange={handleChange} />
+                    {errors.imageUrl && <span className="error">{errors.imageUrl}</span>}
+                </div>
+
+                <div>
+                    <label htmlFor="rivers">River Line:</label>
+                    <input type="text" id="rivers" name="rivers" value={shipData.rivers} onChange={handleChange} />
+                    {errors.rivers && <span className="error">{errors.rivers}</span>}
+                </div>
+                <div>
+                    <label htmlFor="imageUrl">Outer-Image URL:</label>
+                    <input type="text" id="backImage" name="backImage" value={shipData.backImage} onChange={handleChange} />
+                    {errors.imageUrl && <span className="error">{errors.imageUrl}</span>}
+                </div>
+
+                <div>
+                    <label htmlFor="totalGuests">Total Guests:</label>
+                    <input type="number" id="totalGuests" name="totalGuests" value={shipData.totalGuests || ''} onChange={handleChange} />
+                    {errors.totalGuests && <span className="error">{errors.totalGuests}</span>}
+                </div>
+                
+                <div>
+                    <label htmlFor="deckUrl">Deck-Plan</label>
+                    <input type="text" id="deckUrl" name="deckUrl" value={shipData.deckUrl} onChange={handleChange} />
+                    {errors.deckUrl && <span className="error">{errors.deckUrl}</span>}
+                </div>
+
+
+                <div>
                     <label htmlFor="description">Description:</label>
                     <textarea id="description" name="description" value={shipData.description} onChange={handleChange} />
                     {errors.description && <span className="error">{errors.description}</span>}
                 </div>
+
                 <div>
                     <label htmlFor="grandSuite">Grand Suite:</label>
                     <input type="text" id="grandSuite" name="grandSuite" value={shipData.grandSuite} onChange={handleChange} />
                     {errors.grandSuite && <span className="error">{errors.grandSuite}</span>}
                 </div>
+
                 <div>
                     <label htmlFor="suite">Suite: </label>
                     <input type="text" id="suite" name="suite" value={shipData.suite} onChange={handleChange} />
                     {errors.suite && <span className="error">{errors.suite}</span>}
                 </div>
+
                 <div>
                     <label htmlFor="deluxeBalcony">Deluxe Balcony Line:</label>
                     <input type="text" id="deluxeBalcony" name="deluxeBalcony" value={shipData.deluxeBalcony} onChange={handleChange} />

@@ -28,6 +28,9 @@ const Login = () => {
     background: `url(${backgroundImageUrl}) no-repeat center center fixed`,
     backgroundSize: 'cover',
   };
+  const labelStyle = {
+    marginBottom: '10px',
+  };
 
   const formContainerStyle = {
     width: '600px',
@@ -52,39 +55,46 @@ const Login = () => {
   };
   const input =
   {
-    padding: '12px',
-    border: 'none',
-    borderRadius: ' 5px',
-    marginBottom: '20px',
-    fontSize: '16px',
-    color: ' #fff',
-    backgroundColor: '#555'
+    width: '100%',  // Set the width to 100% to make it full-width
+  padding: '12px',
+  border: 'none',
+  borderRadius: '5px',
+  marginBottom: '20px',
+  fontSize: '16px',
+  color: '#fff',
+  backgroundColor: '#555',
   };
 
 
 
   return (
     <div style={containerStyle}>
-      <div className="form-container" style={formContainerStyle}>
+      <div className="login-container" style={formContainerStyle}>
         <h1>Login</h1>
-        <form onSubmit={onSubmit}>
-          <label htmlFor="email">Email</label>
-          <input style={input}
-            type="email"
-            id="email"
-            name="email"
-            placeholder="your@gmail.com"
-            onChange={onChange}
-            value={values[LoginFormKeys.Email]}
-            required />
-          <label htmlFor="password">Password</label>
-          <input style={input}
-            type="password"
-            id="password"
-            name="password"
-            onChange={onChange}
-            value={values[LoginFormKeys.Password]}
-            required />
+        <form className="login" onSubmit={onSubmit}>
+          <div>
+
+            <label htmlFor="email">Email</label>
+            <input style={input}
+              type="email"
+              id="email"
+              name="email"
+              placeholder="your@gmail.com"
+              onChange={onChange}
+              value={values[LoginFormKeys.Email]}
+              required />
+          </div>
+          <div>
+
+            <label htmlFor="password">Password</label>
+            <input style={input}
+              type="password"
+              id="password"
+              name="password"
+              onChange={onChange}
+              value={values[LoginFormKeys.Password]}
+              required />
+          </div>
           <button type="submit" style={buttonStyle}>
             Login
           </button>

@@ -2,11 +2,13 @@ import { useState, useEffect, useReducer, useMemo } from "react";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
+
 import AuthContext from "../../contexts/authContext";
 import * as shipService from '../../services/shipService';
 
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import {Image} from 'antd'
 
 import "./info.css"
 
@@ -34,6 +36,7 @@ const ShipInfo = ({
     shipService.getOne(shipId)
       .then(result => setShip(result));
   }, [shipId]);
+  
 
 
   return (
@@ -45,7 +48,15 @@ const ShipInfo = ({
         <p>Description: {ship.description}</p>
         <p>Year Build: {ship.yearOfBuild}</p>
         <p>Capacity: {ship.totalGuests}</p>
-        <img src={ship.deckUrl} alt="" className="image" />
+        
+        <Image.PreviewGroup>
+          <Image
+            width={500}
+            src={ship.deckUrl}
+            alt=""
+            className="image"
+          />
+        </Image.PreviewGroup>
         {isOwner && (
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
             <Button
