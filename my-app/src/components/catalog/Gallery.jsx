@@ -90,13 +90,16 @@ const Gallery = ({ shipId }) => {
       )}
     </div>
   );
+  const popoverOverlayStyle = {
+    width: '400px', // Set your desired width
+  };
 
   return (
     <div>
       {/* Display gallery images and information */}
       {/* Adjust the rendering based on your gallery data structure */}
       <h2>{ship.name}'s Gallery</h2>
-      <Popover content={content} title={ship.name} trigger="hover">
+      <Popover content={content} title={ship.name} trigger="hover" overlayStyle={popoverOverlayStyle}>
         <img src={ship.backImage} alt={`${ship.name}'s Gallery`} />
       </Popover>
       {/* Add more details as needed */}

@@ -1,6 +1,7 @@
 import * as request from "../lib/request";
 
 const baseUrl = 'http://localhost:3030/data/ships';
+const newestShipUrl = 'http://localhost:3030/data/newestship';
 
 export const getAll = async () => {
 
@@ -13,26 +14,20 @@ export const getOne = async (shipId) => {
 
   return result;
 }
-export const getLatest = async () => {
-  try {
-      const url = `${baseUrl}?offset=0&pageSize=2`;
-      const response = await fetch(url);
-      const ships = await response.json();
-      const sortedShips = ships.sort((a, b) => {
-        return b.yearOfBuild - a.yearOfBuild;
-      });
-      return sortedShips.slice(0, 2);
-  } catch (error) {
-      console.error('Error fetching latest ships:', error);
-      throw error;
-  }
-};
 
 
 export const create = async (shipData) => {
-  const result = await request.post(baseUrl, shipData);
+  const { yearOfBuild } = shipData;
 
-  return result;
+  if (yearOfBuild == 2024) {
+    // Make a request to the newest ship endpoint
+    const result = await request.post(newestShipUrl, shipData);
+    return result;
+  } else {
+    // Make a request to the regular ships endpoint
+    const result = await request.post(baseUrl, shipData);
+    return result;
+  }
 };
 
 export const edit = (shipId, data) => request.put(`${baseUrl}/${shipId}`, data);

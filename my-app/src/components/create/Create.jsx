@@ -13,7 +13,7 @@ const Create = () => {
 
     const shipsData = Object.fromEntries(new FormData(e.currentTarget));
     try {
-      console.log(shipsData);
+     
       await shipService.create(shipsData);
       navigate('/catalog');
     } catch (error) {

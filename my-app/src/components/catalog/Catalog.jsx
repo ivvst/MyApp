@@ -28,18 +28,14 @@ const Catalog = () => {
       .catch(err => console.log(err))
   }, []);
 
-  const [latestShips, setLatestShips] = useState([]);
+
+
 
   const [index, setIndex] = useState(0);
 
   const handleSelect = (selectedIndex) => {
     setIndex(selectedIndex);
   };
-
-  useEffect(() => {
-    shipService.getLatest()
-      .then(result => setLatestShips(result));
-  }, [])
 
   const openShipDetails = async (ship) => {
     setSelectedShip(ship);
@@ -60,7 +56,7 @@ const Catalog = () => {
 
 
     await shipService.remove(selectedShip._id);
-
+g
 
     setShips(prevShips => prevShips.filter(ship => ship._id !== selectedShip._id));
     setShowDeleteModal(false);
@@ -82,8 +78,8 @@ const Catalog = () => {
             <Carousel.Caption className="latest-ships-heading">
               <h3>Introducing Our Newest Super Ships</h3>
               <div className="btn-info">
-                <Link to={Path.Home}>
-                  <button>View More</button>
+                <Link to={Path.NewestShip}>
+                  <Button>View More</Button>
                 </Link>
               </div>
             </Carousel.Caption>
@@ -94,7 +90,7 @@ const Catalog = () => {
               <h3>Travel Europe as a Solo Traveller in 2023</h3>
               <div className="btn-info">
                 <Link to={Path.Home}>
-                  <button>Learn More</button>
+                  <Button>Learn More</Button>
                 </Link>
               </div>
             </Carousel.Caption>
@@ -123,7 +119,6 @@ const Catalog = () => {
       {showInfo && selectedShip && (
         <ShipInfo shipId={selectedShip} onClose={closeShipDetails} />
       )} */}
-
       {/* Delete Confirmation Modal */}
       {showDeleteModal && (
         <Delete

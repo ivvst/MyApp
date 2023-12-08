@@ -1324,6 +1324,7 @@
                 email: "peter@abv.bg",
                 username: "Peter",
                 hashedPassword: "83313014ed3e2391aa1332615d2f053cf5c1bfe05ca1cbcb5582443822df6eb1"
+
             },
             "847ec027-f659-4086-8032-5173e2f9c93a": {
                 email: "george@abv.bg",
@@ -1487,10 +1488,10 @@
         furniture: {
         },
         gallery: {
-           i01: {
+            i01: {
                 name: "S.S. Catherine",
                 _id: "07f260f4-466c-4607-9a33-f7273b24f1b4",
-                shipId:"1240549d-f0e0-497e-ab99-eb8f703713d7",
+                shipId: "1240549d-f0e0-497e-ab99-eb8f703713d7",
                 _ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
                 imageUrl: "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/4675-50061/options/keepaspectratio/uw-sc-hero",
                 grandSuite: "1 (38 sq m)",
@@ -1612,7 +1613,39 @@
             },
 
         },
-        likes: {
+        newestship: {
+            "833e0e57-71dc-42c0-b387-0ce0caf5225e": {
+                _ownerId: "5fdb2a13-16b1-4465-a424-51b9aac90a94",
+                name: "S.S. Victoria",
+                description: `
+                The S.S. Victoria, sister ship to the S.S. Elisabeth, joins our European fleet in 2024 with an ambiance of contemporary luxury and features the largest suites on the rivers of Europe. Two Royal Suites onboard offer an incredible 506 square feet each. Reserve the adjoining standard Suite next door, and that turns into 759 square feet total, with two bedrooms connected by a separate living room. All the Suites and Signature French Balconies offer abundant space—much higher than standard—with ultra-comfortable, water-facing beds dressed in Uniworld’s fine custom linens.
+ Relax amongst the soothing tones of the lounge and enjoy regionally inspired bites in one of three dining venues: a main dining room, a private venue for smaller groups, or our rooftop bar. Elsewhere on the ship, you’ll find a relaxing spa area with a pool, gym, and massage room. Tiny Noticeable Touches, such as the original artwork lining the walls and fresh flowers, add Uniworld’s boutique flair throughout the ship. `,
+                totalGuests: "110",
+                rivers: "Rhine, Moselle",
+                yearOfBuild: "2024",
+                cruiseLine: "Brussels-Amsterdam",
+                backImage: "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10190-50061/options/keepaspectratio/uw-sv-hero",
+                grandSuite: "2 (47 sq m)",
+                suite: "16 (23.5 sq m)",
+                deluxeBalcony: "8 (17.5 sq m)",
+                frenchBalcony: "20 (23.5 sq m)",
+                classic: "None",
+                lenght: "134.9 m",
+                width: "11.3 m",
+                imageUrl: "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10188-50034/resize/0x500/options/keepaspectratio.jpg",
+                deckUrl: "https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10164-50061/options/keepaspectratio/uw-sv-deckplan-2024",
+                stateroomDescritpion: `All staterooms have Open-Air Balconies that,
+                 with the touch of a button, will lower the glass halfway to create a balcony-like effect.
+                  Adjoining staterooms are available; please inquire at the time of booking.
+                   While the S.S. Victoria is a beautiful and luxurious ship,
+                    its amenities may differ slightly from those of a Uniworld-company-owned ship.`,
+                grandSuiteImg1: 'https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10187-50034/resize/0x500/options/keepaspectratio.jpg',
+                grandSuiteImg2: 'https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10156-50034/resize/0x500/options/keepaspectratio.jpg',
+                grandSuiteImg3: 'https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10175-50034/resize/0x500/options/keepaspectratio.jpg',
+                grandSuiteImg4: 'https://www.uniworld.com/dfsmedia/0abe5a49082f4fa787b315e25f74cead/10172-50034/resize/0x500/options/keepaspectratio.jpg',
+                _createdOn: 1615033373504,
+                _id: "833e0e57-71dc-42c0-b387-0ce0caf5225e"
+            },
         },
         ideas: {
             "833e0e57-71dc-42c0-b387-0ce0caf5225e": {

@@ -18,6 +18,8 @@ import Footer from "./components/footer/Footer.jsx";
 import Logout from './components/logout/Logout.jsx';
 import AuthGuards from './components/guards/AuthGuards.jsx';
 import OfflineErrorBoundary from './components/OfflineErrorBoundary.jsx';
+import CatalogNewest from './components/catalog-newShip/CatalogNewest.jsx';
+
 const NotFound = () => <h2>404 Not Found</h2>;
 
 
@@ -36,8 +38,9 @@ function App() {
 
             <Routes>
               <Route path={Path.Home} element={<Home />} />
-              <Route path="/details/:shipId" element={<ShipInfo />} />
               <Route path={Path.Catalog} element={<Catalog />} />
+              <Route path={Path.NewestShip}element={<CatalogNewest/>} />
+              <Route path="/details/:shipId" element={<ShipInfo />} />
 
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
