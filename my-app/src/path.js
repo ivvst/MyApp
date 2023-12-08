@@ -4,6 +4,8 @@ const Path = {
     NewestShip:'/newestShip',
     Create: '/create',
     Logout: '/logout',
+    Unauthorized : '/unauthorized',
+    NotFoundPage : '/notfound',
 
 }
 

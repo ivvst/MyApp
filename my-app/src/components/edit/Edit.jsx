@@ -1,11 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import * as shipService from '../../services/shipService';
 import "./Edit.css"
+import AuthContext from "../../contexts/authContext";
+import Path from "../../path";
 
 const Edit = () => {
     const { shipId } = useParams();
     const navigate = useNavigate();
+    const { userId } = useContext(AuthContext)
 
     const [shipData, setShipData] = useState({
         name: '',
@@ -19,10 +22,22 @@ const Edit = () => {
 
     const [errors, setErrors] = useState({});
 
+    const [toUnauthorized, setToUnauthorized] = useState(false);
+
     useEffect(() => {
         shipService.getOne(shipId)
-            .then(result => setShipData(result))
+            .then(result =>  {
+                console.log(shipId);
+                setShipData(result);
+                // Check ownership here 
+                // Replace with your actual way of getting the current user
+                console.log(userId);
+                if (result._ownerId !== userId) {
+                    setToUnauthorized(true);
+                }
+            })
             .catch(error => console.error('Error fetching ship data:', error));
+
     }, [shipId]);
 
     const handleChange = (e) => {
@@ -63,7 +78,8 @@ const Edit = () => {
         try {
             setIsLoading(true);
             // Save the edited ship data using your service
-            await shipService.edit(shipId, shipData);
+            await shipService.edit(shipId, shipData)
+
             // After saving, navigate back to the ship details page
             navigate(`/catalog`);
         } catch (error) {
@@ -72,6 +88,9 @@ const Edit = () => {
             setIsLoading(false);
         }
     };
+    if (toUnauthorized) {
+        return navigate(Path.Unauthorized)
+    }
 
     return (
         <div className="edit-container">
@@ -116,7 +135,7 @@ const Edit = () => {
                     <input type="number" id="totalGuests" name="totalGuests" value={shipData.totalGuests || ''} onChange={handleChange} />
                     {errors.totalGuests && <span className="error">{errors.totalGuests}</span>}
                 </div>
-                
+
                 <div>
                     <label htmlFor="deckUrl">Deck-Plan</label>
                     <input type="text" id="deckUrl" name="deckUrl" value={shipData.deckUrl} onChange={handleChange} />

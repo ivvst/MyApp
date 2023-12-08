@@ -11,6 +11,7 @@ export const getAll = async () => {
 };
 export const getOne = async (shipId) => {
   const result = await request.get(`${baseUrl}/${shipId}`,);
+  console.log(result);
 
   return result;
 }
